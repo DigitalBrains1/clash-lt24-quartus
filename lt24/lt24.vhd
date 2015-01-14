@@ -16,16 +16,18 @@ end lt24;
 architecture rtl of lt24 is
 
 	component topEntity_0
-  port(clk1000     : in std_logic;
+  port(eta_i1      : in std_logic;
+       clk1000     : in std_logic;
        clk1000_rst : in std_logic;
-       txd_o       : out std_logic);
+       topLet_o    : out std_logic);
 	end component;
 
 begin
 	clash : topEntity_0
 		port map(
+		        eta_i1 => GPIO_0(3),
 			clk1000 => CLOCK_50,
 			clk1000_rst => KEY(0),
-			txd_o => GPIO_0(4));
+			topLet_o => GPIO_0(4));
 end rtl;
 
