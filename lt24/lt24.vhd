@@ -69,7 +69,7 @@ begin
 	txd <= clasho(22);
 	clashi(16) <= rxd;
 	
-	rxd <= GPIO_0(3);
+	rxd <= GPIO_0(2);
 	GPIO_0(4) <= txd;
 	LT24_CS_N <= clasho(21);
 	LT24_RESET_N <= clasho(20);
