@@ -64,7 +64,7 @@ begin
 			o => ltdin);
 	
 	oe <= clasho(0);
-	ltdin <= clashi(15 downto 0);
+	clashi(15 downto 0) <= ltdin;
 	ltdout <= clasho(16 downto 1);
 	txd <= clasho(22);
 	clashi(16) <= rxd;
