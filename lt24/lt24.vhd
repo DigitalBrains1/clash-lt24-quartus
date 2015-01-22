@@ -63,18 +63,18 @@ begin
 			i => ltdout,
 			o => ltdin);
 	
-	oe <= clasho(0);
 	clashi(15 downto 0) <= ltdin;
-	ltdout <= clasho(16 downto 1);
-	txd <= clasho(22);
 	clashi(16) <= rxd;
-	
 	rxd <= GPIO_0(2);
+	
+	txd <= clasho(22);
 	GPIO_0(4) <= txd;
 	LT24_CS_N <= clasho(21);
 	LT24_RESET_N <= clasho(20);
 	LT24_RS <= clasho(19); -- D/CX
 	LT24_WR_N <= clasho(18);
 	LT24_RD_N <= clasho(17);
+	ltdout <= clasho(16 downto 1);
+	oe <= clasho(0);
 end rtl;
 
