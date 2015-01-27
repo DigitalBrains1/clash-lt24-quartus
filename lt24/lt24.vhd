@@ -11,6 +11,7 @@ entity lt24 is
 		CLOCK_50 : in std_logic;
 		KEY : in std_logic_vector(1 downto 0);
 		GPIO_0 : inout std_logic_vector(33 downto 0);
+		LT24_LCD_ON : out std_logic;
 		LT24_CS_N : out std_logic;
 		LT24_RESET_N : out std_logic;
 		LT24_RS : out std_logic; -- D/CX
@@ -36,11 +37,11 @@ architecture rtl of lt24 is
   port(eta_i1      : in std_logic_vector(16 downto 0);
        clk1000     : in std_logic;
        clk1000_rst : in std_logic;
-       topLet_o    : out std_logic_vector(22 downto 0));
+       topLet_o    : out std_logic_vector(23 downto 0));
 	end component;
 
 	signal clashi : std_logic_vector(16 downto 0);
-	signal clasho : std_logic_vector(22 downto 0);
+	signal clasho : std_logic_vector(23 downto 0);
 	signal ltdin : std_logic_vector(15 downto 0);
 	signal ltdout : std_logic_vector(15 downto 0);
 	signal oe : std_logic;
@@ -67,8 +68,9 @@ begin
 	clashi(16) <= rxd;
 	rxd <= GPIO_0(2);
 	
-	txd <= clasho(22);
+	txd <= clasho(23);
 	GPIO_0(4) <= txd;
+	LT24_LCD_ON <= clasho(22);
 	LT24_CS_N <= clasho(21);
 	LT24_RESET_N <= clasho(20);
 	LT24_RS <= clasho(19); -- D/CX
