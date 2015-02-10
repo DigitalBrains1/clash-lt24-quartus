@@ -37,7 +37,7 @@ architecture rtl of lt24 is
   port(eta_i1      : in std_logic_vector(16 downto 0);
        clk1000     : in std_logic;
        clk1000_rst : in std_logic;
-       topLet_o    : out std_logic_vector(24 downto 0));
+       bodyVar_o    : out std_logic_vector(24 downto 0));
 	end component;
 
 	signal clashi : std_logic_vector(16 downto 0);
@@ -54,7 +54,7 @@ begin
 		        eta_i1 => clashi,
 			clk1000 => CLOCK_50,
 			clk1000_rst => KEY(0),
-			topLet_o => clasho);
+			bodyVar_o => clasho);
 	
 	lt24d : bidir16
 		port map(
