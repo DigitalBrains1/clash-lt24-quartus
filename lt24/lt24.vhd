@@ -34,13 +34,13 @@ architecture rtl of lt24 is
 	end component;
 	
 	component topEntity_0
-  port(eta_i1      : in std_logic_vector(16 downto 0);
+  port(eta_i1      : in std_logic_vector(17 downto 0);
        clk1000     : in std_logic;
        clk1000_rst : in std_logic;
        bodyVar_o    : out std_logic_vector(24 downto 0));
 	end component;
 
-	signal clashi : std_logic_vector(16 downto 0);
+	signal clashi : std_logic_vector(17 downto 0);
 	signal clasho : std_logic_vector(24 downto 0);
 	signal ltdin : std_logic_vector(15 downto 0);
 	signal ltdout : std_logic_vector(15 downto 0);
@@ -66,6 +66,7 @@ begin
 	
 	clashi(15 downto 0) <= ltdin;
 	clashi(16) <= rxd;
+	clashi(17) <= KEY(1);
 	rxd <= GPIO_0(2);
 	
 	GPIO_0(1) <= clasho(24);
