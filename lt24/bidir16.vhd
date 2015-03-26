@@ -1,3 +1,5 @@
+-- Based on Altera provided design downloaded from:
+-- http://wl.altera.com/support/examples/vhdl/v_bidir.html
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 
